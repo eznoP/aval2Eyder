@@ -19,23 +19,23 @@ def add_animal():
     title = print('\nCadastro de animal.')
     line = '-' * len(title)
 
-    animal_id = int(input('Adicione o ID do animal: ').strip)
-    if any(a['id'] == animal_id for a in animals):
-        print('ID já cadastrado.')
+    animal_id = int(input('Adicione o ID do animal: ').strip)  # CADSATRO DO ID DO ANIMAL
+    if any(a['id'] == animal_id for a in animals):             # EVITAR QUE SEJAM CADASTRADOS IDs IGUAIS
+        print('ID já cadastrado.') 
         return
     
-    species = input('Insira a espécie do animal (bovino, caprino, aves, etc): ').strip
+    species = input('Insira a espécie do animal (bovino, caprino, aves, etc): ').strip  # CADASTRAR A ESPÉCIE DO ANIMAL
     
     try:
-        weight = float(input('Peso em kilos: '))
+        weight = float(input('Peso em kilos: '))                                       # CADASTRAR PESO E IDADE DO ANIMAL
         age = int(input('Idade do animal em meses: '))
     except ValueError:
-        print('Insira um número válido, para peso 10.5 kg, para idade 10 meses.')
+        print('Insira um número válido, para peso 10.5 kg, para idade 10 meses.')     # CASO O USUÁRIO NÃO COLOQUE UM NÚMERO VÁLIDO
         return
     
-    status = 'active'
+    status = 'active'   # POR PADRÃO O STATUS DO ANIMAL JÁ VEM ATIVO
         
-    animal = {
+    animal = {                        # DICIONÁRIO PARA ARMAZENAR AS INFORMAÇÕES DO ANIMAL
         "id": animal_id,
         "species": species,
         "weight": weight,
@@ -43,9 +43,9 @@ def add_animal():
         "status": status
     }
 
-    animals.append(animal)
-    save_animals(animals)
-    print('Animal cadastrado!')
+    animals.append(animal)           # ADICIONAR O NOVO ANIMAL NA LISTA
+    save_animals(animals)            # SALVAR O ANIMAL
+    print('Animal cadastrado!')      # FEEDBACK PARA O USUÁRIO
 
 def update_data():
     animals = load_animals
