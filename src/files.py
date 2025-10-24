@@ -23,7 +23,7 @@ def save_data(filename, data):
         json.dump(data, file, indent=4, ensure_ascii=False)
 
 
-import json          # JSON É UM FORMATO DE ARMAZENAMENTO DE DADOS LEVE E FÁCIL DE LER
+import json         
 import os          # MODÚLO QUE SERVE PARA INTERAGIR COM O SISTEMA OPERACIONAL
 
 DATA_PATH = os.path.join(os.path.dirname(__file__), '..', 'data')          # CAMINHO PARA A PASTA DE DADOS

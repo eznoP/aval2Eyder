@@ -1,10 +1,10 @@
-from files import load_data, save_data
+from files import load_data, save_data   # FUNÇÕES PARA CARREGAR E SALVAR DADOS
 
-FILENAME = 'inputs.json'
+FILENAME = 'inputs.json'  
 
 def add_input():
     inputs = load_data(FILENAME)
-    item = {
+    item = {                            # INICIO DE CADASTRO DO NOVO INSUMO
         "id": input("ID do insumo: "),
         "name": input("Nome (ex: “Ração bovina”, “Semente de milho”, “Adubo NPK 20-10-10”):  "),
         "quantity": float(input("Quantidade em kilogramas:   ")),
@@ -15,9 +15,9 @@ def add_input():
     save_data(FILENAME, inputs)
     print("✅ Insumo cadastrado!")
 
-def update_stock():
-    inputs = load_data(FILENAME)
-    item_id = input("ID do insumo: ")
+def update_stock():                # FUNÇÃO PARA GERENCIAR INSUMOS 
+    inputs = load_data(FILENAME)   # PERMITE DIZER A QUANTIDADE DE INSUMO RETIRADA DO ESTOQUE
+    item_id = input("ID do insumo: ") # SALVA AS RETIRADAS
     for i in inputs:
         if i['id'] == item_id:
             try:
