@@ -1,17 +1,27 @@
 
+import json
+from datetime import datetime
 
-from datetime import datetime            # MÓDULO PARA TRABALHAR COM DATAS E HORÁRIOS
-from files import load_data, save_data          
+def add_movement():       
+    # LÊ O ARQUIVO (OU CRIA UM NOVO) , PEGA DATA E HORA ATUAIS , PEGA A DESCRIÇÃO DA MOVIMENTAÇÃO , ADICIONA NA LISTA E SALVA DE VOLTA NO ARQUIVO.
+    
+    try :
+        f = open('movements.json', 'r', encoding='utf-8')
+        movements = json.load(f)
+        f.close()
+    except:
+        print("Arquivo não existe, criando um novo...")
+        movements = []
 
-FILENAME = 'movements.json'         
+    data = str(datetime.now())
+    descricao = input("Descrição da movimentação: ")
 
-def add_movement():                          # FUNÇÃO PARA ADICIONAR UMA NOVA MOVIMENTAÇÃO
-    movements = load_data(FILENAME)          # CARREGA AS MOVIMENTAÇÕES EXISTENTES
-    movement = {   
-        "date": datetime.now().strftime("%Y-%m-%d %H:%M"),                                            # DATA E HORA ATUAL FORMATADA
-        "description": input("Descrição da movimentação (ex: 1° Relatório da fazenda):   ")           # DESCRIÇÃO DA MOVIMENTAÇÃO
-    }
-    movements.append(movement)              # ADICIONA A NOVA MOVIMENTAÇÃO À LISTA
-    save_data(FILENAME, movements)          # SALVA A LISTA ATUALIZADA DE VOLTA NO ARQUIVO
-    print("✅ Movimentação registrada!")
+    movimento = {"date": data, "description": descricao}
 
+    movements.append(movimento)
+
+    f = open('movements.json', 'w', encoding='utf-8')
+    json.dump(movements, f)
+    f.close()
+
+    print("Movimentação registrada com sucesso!")
