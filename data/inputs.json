@@ -1,31 +1,9 @@
-from files import load_data, save_data
-
-FILENAME = 'inputs.json'
-
-def add_input():
-    inputs = load_data(FILENAME)
-    item = {
-        "id": input("ID: "),
-        "name": input("Nome: "),
-        "quantity": float(input("Quantidade: ")),
-        "unit": input("Unidade: "),
-        "category": input("Categoria: ")
+[
+    {
+        "id": "0001",
+        "name": "frejg",
+        "quantity": 110.0,
+        "unit": "1",
+        "category": "frepogk"
     }
-    inputs.append(item)
-    save_data(FILENAME, inputs)
-    print("✅ Insumo cadastrado!")
-
-def update_stock():
-    inputs = load_data(FILENAME)
-    item_id = input("ID do insumo: ")
-    for i in inputs:
-        if i['id'] == item_id:
-            q = float(input("Quantidade (negativo = saída): "))
-            if i['quantity'] + q < 0:
-                print("❌ Erro: saída maior que o estoque disponível!")
-                return
-            i['quantity'] += q
-            save_data(FILENAME, inputs)
-            print("✅ Estoque atualizado!")
-            return
-    print("❌ Insumo não encontrado.")
+]

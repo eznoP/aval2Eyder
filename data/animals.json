@@ -1,0 +1,9 @@
+[
+    {
+        "id": 1,
+        "species": "Bovino",
+        "age": 1.0,
+        "weight": 90.1,
+        "status": "active"
+    }
+]

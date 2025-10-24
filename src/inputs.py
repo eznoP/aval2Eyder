@@ -6,10 +6,10 @@ def add_input():
     inputs = load_data(FILENAME)
     item = {
         "id": input("ID do insumo: "),
-        "name": input("Nome: "),
-        "quantity": float(input("Quantidade: ")),
-        "unit": input("Unidade: "),
-        "category": input("Categoria: ")
+        "name": input("Nome (ex: “Ração bovina”, “Semente de milho”, “Adubo NPK 20-10-10”):  "),
+        "quantity": float(input("Quantidade em kilogramas:   ")),
+        "unit": input("Unidade em sacos:   "),
+        "category": input("Categoria (ração, semente, fertilizante, medicina): ")
     }
     inputs.append(item)
     save_data(FILENAME, inputs)
