@@ -10,9 +10,9 @@ def clear():
 
 def menu():
     while True:
-        print("\n===== Fazenda Digital =====\n")
-        print("1. Cadastrar Animal")
-        print("2. Listar Animais\n")
+        print("\n===== Fazenda Digital =====\n")                    # MENU INTERATIVO COM USUÁRIO
+        print("1. Cadastrar Animal")                                # CASO USUÁRIO DIGITAR 1,2,3,4,5,6,7,8, ABRIRÁ FUNÇÕES QUE
+        print("2. Listar Animais\n")                                # INTERAGEM COM A FAZENDA, CASO DIGITAR 0(ZERO) O SISTEMA FECHA
         print("3. Cadastrar Plantação")
         print("4. Listar Plantações\n")
         print("5. Cadastrar Insumo")
