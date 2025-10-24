@@ -7,6 +7,7 @@ def generate_report():
     inputs = load_data('inputs.json')               # CARREGA O ARQUIVO DOS INSUMOS SALVOS
 
     report_lines = [                                # RELATÓRIO QUE APARECERÁ QUANDO O USUÁRIO SOLICITAR A GERAÇÃO DE RELATÓRIO
+        
         f"Relatório - Fazenda",
         f"Data de geração: {datetime.now().strftime('%d/%m/%Y %H:%M')}",
         "-"*50,

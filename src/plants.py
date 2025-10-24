@@ -3,8 +3,18 @@ from files import load_data, save_data
 
 FILENAME = 'plants.json'
 
-def add_plant():
+def add_plant():                       
     try:
+        
+        plant = {
+        "id": input("ID da plantação: "),
+        "crop_type": crop_type,
+        "area": area,
+        "planting_date": planting_date,
+        "harvest_date": harvest_date,
+        "status": "planted"
+    }
+        
         plants = load_data(FILENAME)
 
         crop_type = input("Tipo de cultura (ex: “milho”, “soja”, “arroz”, “hortaliça”): ")
@@ -24,15 +34,7 @@ def add_plant():
         print("❌ Data inválida. Use o formato YYYY-MM-DD.")
         return
 
-    plant = {
-        "id": input("ID da plantação: "),
-        "crop_type": crop_type,
-        "area": area,
-        "planting_date": planting_date,
-        "harvest_date": harvest_date,
-        "status": "planted"
-    }
-    
+
     plants.append(plant)
     save_data(FILENAME, plants)
     print("✅ Plantação cadastrada com sucesso!")
