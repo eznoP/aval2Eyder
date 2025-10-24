@@ -1,51 +1,27 @@
-
 from files import load_data, save_data
 
-FILENAME = "animals.json"
-
-def load_animals():
-    return load_data(FILENAME)
-
-def save_animals(animals):
-    save_data(FILENAME, animals)
-
-
-
-
+FILENAME = 'animals.json'
 
 def add_animal():
-
-    animals = load_animals()
-    title = print('\nCadastro de animal.')
-    line = '-' * len(title)
-
-    animal_id = int(input('Adicione o ID do animal: ').strip)  # CADSATRO DO ID DO ANIMAL
-    if any(a['id'] == animal_id for a in animals):             # EVITAR QUE SEJAM CADASTRADOS IDs IGUAIS
-        print('ID já cadastrado.') 
-        return
-    
-    species = input('Insira a espécie do animal (bovino, caprino, aves, etc): ').strip  # CADASTRAR A ESPÉCIE DO ANIMAL
-    
+    animals = load_data(FILENAME) 
     try:
-        weight = float(input('Peso em kilos: '))                                       # CADASTRAR PESO E IDADE DO ANIMAL
-        age = int(input('Idade do animal em meses: '))
+        animal = {                                                                             # PROCESSO DE ADICIONAR ANIMAL
+            "id": int(input("ID do animal: ")),
+            "species": input("Espécie (ex: “bovino”, “caprino”, “aves”, “suíno”): "),
+            "age": float(input("Idade: ")),
+            "weight": float(input("Peso: ")),
+            "status": "active"
+        }
+        animals.append(animal)       # ADICIONA O NOVO ANIMAL NA LISTA DE ANIMAIS                                                               
+        save_data(FILENAME, animals)   # SALVA O NOVO ANIMAL NA LISTA
+        print("✅ Animal cadastrado com sucesso!")
     except ValueError:
-        print('Insira um número válido, para peso 10.5 kg, para idade 10 meses.')     # CASO O USUÁRIO NÃO COLOQUE UM NÚMERO VÁLIDO
+        print("❌ Erro: digite apenas números em ID, idade e peso.")
+
+def list_animals():             # FUNÇÃO QUE VERIFICA SE EXISTE ALGUM ANIMAL JÁ CADASTRADO, CASO NÃO HAJA NENHUM ARQUIVO COM A LISTA DE ANIMAIS, 
+    animals = load_data(FILENAME) # SERÁ CRIADO UM NOVO AQUIVO PARA QUE A LISTA DE ANIMAIS SEJA SALVA NELE.
+    if not animals:
+        print("Nenhum animal cadastrado.")
         return
-    
-    status = 'active'   # POR PADRÃO O STATUS DO ANIMAL JÁ VEM ATIVO
-        
-    animal = {                        # DICIONÁRIO PARA ARMAZENAR AS INFORMAÇÕES DO ANIMAL
-        "id": animal_id,
-        "species": species,
-        "weight": weight,
-        "age": age,
-        "status": status
-    }
-
-    animals.append(animal)           # ADICIONAR O NOVO ANIMAL NA LISTA
-    save_animals(animals)            # SALVAR O ANIMAL
-    print('Animal cadastrado!')      # FEEDBACK PARA O USUÁRIO
-
-def update_data():
-    animals = load_animals
+    for a in animals:
+        print(f"{a['id']} - {a['species']} - {a['age']} anos - {a['weight']} kg - {a['status']}")

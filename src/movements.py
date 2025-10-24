@@ -1,0 +1,15 @@
+
+from datetime import datetime            # MÓDULO PARA TRABALHAR COM DATAS E HORÁRIOS
+from files import load_data, save_data          # FUNÇÕES PARA CARREGAR E SALVAR DADOS
+
+FILENAME = 'movements.json'          # NOME DO ARQUIVO DE DADOS
+
+def add_movement():          # FUNÇÃO PARA ADICIONAR UMA NOVA MOVIMENTAÇÃO
+    movements = load_data(FILENAME)          # CARREGA AS MOVIMENTAÇÕES EXISTENTES
+    movement = {   
+        "date": datetime.now().strftime("%Y-%m-%d %H:%M"),          # DATA E HORA ATUAL FORMATADA
+        "description": input("Descrição da movimentação (ex: 1° Relatório da fazenda):   ")           # DESCRIÇÃO DA MOVIMENTAÇÃO
+    }
+    movements.append(movement)          # ADICIONA A NOVA MOVIMENTAÇÃO À LISTA
+    save_data(FILENAME, movements)          # SALVA A LISTA ATUALIZADA DE VOLTA NO ARQUIVO
+    print("✅ Movimentação registrada!")

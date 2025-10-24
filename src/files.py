@@ -1,19 +1,22 @@
 import json
 import os
+# JA FOI FEITO
 
-DATA_PATH = 'data'
+
+DATA_PATH = os.path.join(os.path.dirname(__file__), '..', 'data')
 
 def load_data(filename):
-    filepath = os.path.join(DATA_PATH, filename)
-    if not os.path.exists(filepath):
-        save_data(filename, [])
-        with open(filepath, 'r', encoding='utf-8') as file:
-            try:
-                return json.load(file)
-            except json.JSONDecodeError:
-                return []
+    path = os.path.join(DATA_PATH, filename)
+    if not os.path.exists(path):
+        return []
+    try:
+        with open(path, 'r', encoding='utf-8') as file:
+            return json.load(file)
+    except json.JSONDecodeError:
+        print(f"Aviso: {filename} estava vazio ou corrompido. Criando novo.")
+        return []
 
 def save_data(filename, data):
-    filepath = os.path.join(DATA_PATH, filename)
-    with open(filepath, 'w', encoding='utf-8') as file:
-        json.dump(data, file, inden=4, ensure_ascii=False)
+    path = os.path.join(DATA_PATH, filename)
+    with open(path, 'w', encoding='utf-8') as file:
+        json.dump(data, file, indent=4, ensure_ascii=False)

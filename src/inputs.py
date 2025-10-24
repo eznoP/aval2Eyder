@@ -5,7 +5,7 @@ FILENAME = 'inputs.json'
 def add_input():
     inputs = load_data(FILENAME)
     item = {
-        "id": input("ID: "),
+        "id": input("ID do insumo: "),
         "name": input("Nome: "),
         "quantity": float(input("Quantidade: ")),
         "unit": input("Unidade: "),
@@ -20,12 +20,16 @@ def update_stock():
     item_id = input("ID do insumo: ")
     for i in inputs:
         if i['id'] == item_id:
-            q = float(input("Quantidade (negativo = saída): "))
-            if i['quantity'] + q < 0:
-                print("❌ Erro: saída maior que o estoque disponível!")
+            try:
+                amount = float(input("Quantidade (negativo = saída): "))
+                if i['quantity'] + amount < 0:
+                    print("❌ Saída maior que estoque disponível!")
+                    return
+                i['quantity'] += amount
+                save_data(FILENAME, inputs)
+                print("✅ Estoque atualizado!")
                 return
-            i['quantity'] += q
-            save_data(FILENAME, inputs)
-            print("✅ Estoque atualizado!")
-            return
+            except ValueError:
+                print("❌ Valor inválido.")
+                return
     print("❌ Insumo não encontrado.")
