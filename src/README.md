@@ -6,3 +6,12 @@
  ARTHUR LEAL TELES ; 2025049589
  
  ANTONIO LUCAS DE OLIVEIRA NETO ; 2025031806</h3>
+
+ ---
+ 
+<h2>Trabalho para o curso de Algorítmos e Programção Estruturada</h2>
+<h3>     - Pequeno menu interativo que simula o gerenciamento
+           de uma fazenda digital.
+         - O sistema permite a criação e o armazenamento de
+           animais, plantas e insumos.
+</h3>
