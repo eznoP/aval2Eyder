@@ -1,7 +1,7 @@
 
 import json
 import os
-# JA FOI FEITO
+
 
 
 DATA_PATH = os.path.join(os.path.dirname(__file__), '..', 'data')
