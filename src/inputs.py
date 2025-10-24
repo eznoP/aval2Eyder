@@ -1,35 +1,62 @@
-from files import load_data, save_data   # FUNÇÕES PARA CARREGAR E SALVAR DADOS
+import json
+from files import load_data, save_data
+FILENAME = "inputs.json"
 
-FILENAME = 'inputs.json'  
+def load_data():
+    try:
+        with open(FILENAME, "r") as f:
+            return json.load(f)
+    except FileNotFoundError:
+        return []  #LISTA
 
-def add_input():
-    inputs = load_data(FILENAME)
-    item = {                            # INICIO DE CADASTRO DO NOVO INSUMO
-        "id": input("ID do insumo: "),
-        "name": input("Nome (ex: “Ração bovina”, “Semente de milho”, “Adubo NPK 20-10-10”):  "),
-        "quantity": float(input("Quantidade em kilogramas:   ")),
-        "unit": input("Unidade em sacos:   "),
-        "category": input("Categoria (ração, semente, fertilizante, medicina): ")
-    }
-    inputs.append(item)
-    save_data(FILENAME, inputs)
-    print("✅ Insumo cadastrado!")
+def save_data(data):
+    with open(FILENAME, "w") as f:
+        json.dump(data, f, indent=4)
 
-def update_stock():                # FUNÇÃO PARA GERENCIAR INSUMOS 
-    inputs = load_data(FILENAME)   # PERMITE DIZER A QUANTIDADE DE INSUMO RETIRADA DO ESTOQUE
-    item_id = input("ID do insumo: ") # SALVA AS RETIRADAS
-    for i in inputs:
-        if i['id'] == item_id:
-            try:
-                amount = float(input("Quantidade (negativo = saída): "))
-                if i['quantity'] + amount < 0:
-                    print("❌ Saída maior que estoque disponível!")
-                    return
-                i['quantity'] += amount
-                save_data(FILENAME, inputs)
-                print("✅ Estoque atualizado!")
-                return
-            except ValueError:
-                print("❌ Valor inválido.")
-                return
-    print("❌ Insumo não encontrado.")
+def register_input():
+    insumo = {}
+    insumo["id"] = input("Digite o ID do insumo (ex: I001): ")
+    insumo["name"] = input("Nome do insumo: ")
+    insumo["quantity"] = float(input("Quantidade disponível: "))
+    insumo["unit"] = input("Unidade de medida (kg, L, saco, dose): ")
+    insumo["category"] = input("Categoria (feed, seed, fertilizer, medicine): ")
+
+    data = load_data()
+    data.append(insumo)
+    save_data(data)
+
+    print("Insumo cadastrado.\n")
+
+
+def list_input():
+    data = load_data()
+    if not data:
+        print("Nenhum insumo cadastrado ainda.")
+        return
+
+    print("\n--- LISTA DE INSUMOS ---")
+    for insumo in data:
+        print(f"ID: {insumo['id']}")
+        print(f"Nome: {insumo['name']}")
+        print(f"Quantidade: {insumo['quantity']} {insumo['unit']}")
+        print(f"Categoria: {insumo['category']}")
+        print("-----------------------------")
+    print()
+
+def main():
+    while True:
+        print("1 - Cadastrar novo insumo")
+        print("2 - Listar insumos")
+        print("3 - Sair")
+        opcao = input("Escolha uma opção: ")
+
+        if opcao == "1":
+            register_input()
+        elif opcao == "2":
+            list_input()
+        elif opcao == "3":
+            break
+        else:
+            print("Opção inválida.\n")
+
+main()
