@@ -2,17 +2,6 @@ import json
 from files import load_data, save_data
 FILENAME = "inputs.json"
 
-def load_data():
-    try:
-        with open(FILENAME, "r") as f:
-            return json.load(f)
-    except FileNotFoundError:
-        return []  #LISTA
-
-def save_data(data):
-    with open(FILENAME, "w") as f:
-        json.dump(data, f, indent=4)
-
 def register_input():
     insumo = {}
     insumo["id"] = input("Digite o ID do insumo (ex: I001): ")
