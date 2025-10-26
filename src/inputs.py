@@ -32,7 +32,7 @@ def list_input():
         print("-----------------------------")
     print()
 
-def main():
+def options():
     while True:
         print("1 - Cadastrar novo insumo")
         print("2 - Listar insumos")
@@ -48,4 +48,4 @@ def main():
         else:
             print("Opção inválida.\n")
 
-main()
+options()
