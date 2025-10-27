@@ -10,21 +10,22 @@ def clear():
 
 def menu():
     while True:
-        print("\n===== Fazenda Digital =====\n")                    # MENU INTERATIVO COM USUÁRIO
-        print("1. Cadastrar Animal")                                # CASO USUÁRIO DIGITAR 1,2,3,4,5,6,7,8, ABRIRÁ FUNÇÕES QUE
-        print("2. Listar Animais\n")                                # INTERAGEM COM A FAZENDA, CASO DIGITAR 0(ZERO) O SISTEMA FECHA
+        print("\n===== Fazenda Digital =====\n")                     # MENU INTERATIVO COM USUÁRIO
+        print("1. Cadastrar Animal")                                 # CASO USUÁRIO DIGITAR 1,2,3,4,5,6,7,8, ABRIRÁ FUNÇÕES QUE
+        print("2. Listar Animais\n")                                 # INTERAGEM COM A FAZENDA, CASO DIGITAR 0(ZERO) O SISTEMA FECHA
         print("3. Cadastrar Plantação")
         print("4. Listar Plantações\n")
         print("5. Cadastrar Insumo")
         print("6. Atualizar Estoque\n")
         print("7. Registrar Movimentação")
         print("8. Gerar Relatório\n")
-        print("0. Sair\n")
-        user_choose = input("Escolha uma opção: ")
+        print("0. Sair\n\n")
+
+        user_choose = input("Escolha uma opção:  ")
 
         if user_choose == "1":
             clear()
-            print('\n==== ADICIONAR NOVO ANIMAL ====')
+            
             add_animal()
 
         elif user_choose == "2":
@@ -33,7 +34,7 @@ def menu():
 
         elif user_choose == "3":
             clear()
-            print('\n==== ADICIONAR NOVA PLANTA ====')
+            
             add_plant()
         
         elif user_choose == "4":
@@ -42,7 +43,7 @@ def menu():
         
         elif user_choose == "5":
             clear()
-            print('\n==== ADICIONAR NOVO INSUMO ====')
+            
             add_input()
         
         elif user_choose == "6":
@@ -61,7 +62,8 @@ def menu():
             print("Saindo... até mais 👋")
             break
         else:
+            clear()
             print("❌ Opção inválida, tente novamente.")
-
+            input()
 if __name__ == "__main__":
     menu()

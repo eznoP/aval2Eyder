@@ -2,11 +2,12 @@ from datetime import datetime
 from files import load_data
 
 def generate_report():
-    animals = load_data('animals.json')             # CARREGA O ARQUIVO DOS ANIMAIS SALVOS
-    plants = load_data('plants.json')               # CARREGA O ARQUIVO DAS PLANTAS SALVAS
-    inputs = load_data('inputs.json')               # CARREGA O ARQUIVO DOS INSUMOS SALVOS
+    
+    animals = load_data('animals.json')              # CARREGA O ARQUIVO DOS ANIMAIS SALVOS
+    plants = load_data('plants.json')                # CARREGA O ARQUIVO DAS PLANTAS SALVAS
+    inputs = load_data('inputs.json')                # CARREGA O ARQUIVO DOS INSUMOS SALVOS
 
-    report_lines = [                                # RELATÓRIO QUE APARECERÁ QUANDO O USUÁRIO SOLICITAR A GERAÇÃO DE RELATÓRIO
+    report_lines = [                                 # RELATÓRIO QUE APARECERÁ QUANDO O USUÁRIO SOLICITAR A GERAÇÃO DE RELATÓRIO
         
         f"Relatório - Fazenda",
         f"Data de geração: {datetime.now().strftime('%d/%m/%Y %H:%M')}",

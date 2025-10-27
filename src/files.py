@@ -2,7 +2,7 @@
 import json    
 
 def load_data(arquivo):
-    # LÊ OS ARQUIVOS E DESENVOLVE OS DADOS , SE O ARQUIVO NÃO EXISTIR , DEVOLVE UMA LISTA VAZIA.
+      # LÊ OS ARQUIVOS E DESENVOLVE OS DADOS , SE O ARQUIVO NÃO EXISTIR , DEVOLVE UMA LISTA VAZIA.
 
     try:
         f = open(arquivo, 'r', encoding='utf-8')

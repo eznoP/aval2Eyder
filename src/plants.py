@@ -1,12 +1,13 @@
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta        # FUNÇÕES QUE ADICIONAM O TIPO DE DATA (YYYY-MM-DD)
 from files import load_data, save_data
 
 FILENAME = 'plants.json'
 
 def add_plant():                       
+    print('\n==== ADICIONAR NOVA PLANTA ====')
     try:
         
-        plant = {
+        plant = {                               # ADIÇÃO DE UMA NOVA PLANTA OU SEMENTE
         "id": input("ID da plantação: "),
         "crop_type": crop_type,
         "area": area,
@@ -26,10 +27,14 @@ def add_plant():
 
         harvest_time = {"milho": 120, "soja": 130, "arroz": 110}
         harvest_days = harvest_time.get(crop_type.lower(), 100)
+    
     except ValueError:
         print("❌ Erro: digite palavras para tipo de cultura e números em área.")
+    
+    
     try:
         harvest_date = (datetime.fromisoformat(planting_date) + timedelta(days=harvest_days)).date().isoformat()
+    
     except ValueError:
         print("❌ Data inválida. Use o formato YYYY-MM-DD.")
         return

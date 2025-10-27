@@ -3,7 +3,7 @@ import json
 from datetime import datetime
 
 def add_movement():       
-    # LÊ O ARQUIVO (OU CRIA UM NOVO) , PEGA DATA E HORA ATUAIS , PEGA A DESCRIÇÃO DA MOVIMENTAÇÃO , ADICIONA NA LISTA E SALVA DE VOLTA NO ARQUIVO.
+       # LÊ O ARQUIVO (OU CRIA UM NOVO) , PEGA DATA E HORA ATUAIS , PEGA A DESCRIÇÃO DA MOVIMENTAÇÃO , ADICIONA NA LISTA E SALVA DE VOLTA NO ARQUIVO.
     
     try :
         f = open('movements.json', 'r', encoding='utf-8')
