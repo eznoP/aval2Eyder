@@ -17,4 +17,6 @@
 <h3>     
  - O sistema permite a criação e o armazenamento de
            animais, plantas e insumos.
+ - Sendo possível adicionar um novo animal, planta 
+           e insumo e listá-los.
 </h3>
