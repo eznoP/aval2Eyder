@@ -28,15 +28,16 @@ def menu():
         elif user_choose == "2":
             clear()
             list_animals()
+            input("Pressione Enter para voltar.")
 
         elif user_choose == "3":
             clear()
-            
             add_plant()
         
         elif user_choose == "4":
             clear()
             list_plants()
+            input("Pressione Enter para voltar.")
         
         elif user_choose == "5":
             clear()

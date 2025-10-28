@@ -5,9 +5,27 @@ FILENAME = 'plants.json'
 
 def add_plant():                       
     print('\n==== ADICIONAR NOVA PLANTA ====')
+    # Coleta entradas do usuário com validação
+    crop_type = input("Tipo de cultura (ex: milho, soja, arroz, hortaliça): ")
     try:
-        
-        plant = {                               # ADIÇÃO DE UMA NOVA PLANTA OU SEMENTE
+        area = float(input("Área (ha): "))
+    except ValueError:
+        print("❌ Erro: área inválida. Digite um número (ex: 1.5).")
+        return
+
+    planting_date = input("Data de plantio (YYYY-MM-DD): ")
+
+    harvest_time = {"milho": 120, "soja": 130, "arroz": 110}
+    harvest_days = harvest_time.get(crop_type.lower(), 100)
+
+    try:
+        harvest_date = (datetime.fromisoformat(planting_date) + timedelta(days=harvest_days)).date().isoformat()
+    except ValueError:
+        print("❌ Data inválida. Use o formato YYYY-MM-DD.")
+        return
+
+    # Monta o dicionário da plantação
+    plant = {
         "id": input("ID da plantação: "),
         "crop_type": crop_type,
         "area": area,
@@ -15,31 +33,8 @@ def add_plant():
         "harvest_date": harvest_date,
         "status": "planted"
     }
-        
-        plants = load_data(FILENAME)
 
-        crop_type = input("Tipo de cultura (ex: “milho”, “soja”, “arroz”, “hortaliça”): ")
-
-        area = float(input("Área (ha): "))
-
-
-        planting_date = input("Data de plantio (YYYY-MM-DD): ")
-
-        harvest_time = {"milho": 120, "soja": 130, "arroz": 110}
-        harvest_days = harvest_time.get(crop_type.lower(), 100)
-    
-    except ValueError:
-        print("❌ Erro: digite palavras para tipo de cultura e números em área.")
-    
-    
-    try:
-        harvest_date = (datetime.fromisoformat(planting_date) + timedelta(days=harvest_days)).date().isoformat()
-    
-    except ValueError:
-        print("❌ Data inválida. Use o formato YYYY-MM-DD.")
-        return
-
-
+    plants = load_data(FILENAME)
     plants.append(plant)
     save_data(FILENAME, plants)
     print("✅ Plantação cadastrada com sucesso!")
