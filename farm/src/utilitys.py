@@ -6,4 +6,5 @@ def clear():
     os.system("cls" if os.name == "nt" else "clear")
 
 def return_to_menu():
-    input("Pressione qualquer tecla para voltar.  ")
+    input("Pressione qualquer ENTER para voltar.  ")
+    clear()

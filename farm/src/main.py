@@ -28,7 +28,7 @@ def menu():
         elif user_choose == "2":
             clear()
             list_animals()
-            input("Pressione Enter para voltar.")
+            clear()
 
         elif user_choose == "3":
             clear()
@@ -37,7 +37,7 @@ def menu():
         elif user_choose == "4":
             clear()
             list_plants()
-            input("Pressione Enter para voltar.")
+            clear()
         
         elif user_choose == "5":
             clear()
@@ -46,22 +46,22 @@ def menu():
         elif user_choose == "6":
             clear()
             update_stock()
+            clear()
         
         elif user_choose == "7":
             clear()
             add_movement()
-        
+            clear()
+
         elif user_choose == "8":
             clear()
             generate_report()
-        
+
         elif user_choose == "0":
             print("Saindo... até mais 👋")
             break
         else:
             clear()
-            print("❌ Opção inválida, tente novamente.")
-            input()
 
 if __name__ == "__main__":  
     menu()

@@ -1,27 +1,33 @@
 
-import json
 from datetime import datetime
+from files import load_data, save_data
+from utilitys import clear, return_to_menu
 
-def add_movement():       
-       # LÊ O ARQUIVO (OU CRIA UM NOVO) , PEGA DATA E HORA ATUAIS , PEGA A DESCRIÇÃO DA MOVIMENTAÇÃO , ADICIONA NA LISTA E SALVA DE VOLTA NO ARQUIVO.
+FILENAME = 'movements.json'
+
+def add_movement():                                         # Registra uma movimentação usando a camada de arquivos padrão (data/).
+                                                            # Evita criar arquivos na pasta de trabalho atual por acidente.
+    movements = load_data(FILENAME)
+
+    data_str = datetime.now().isoformat(sep=' ')
+    user_choose = (input(">>> Deseja realmente registrar uma nova movimentação? (Pressione Enter para continuar ou 0 para voltar ao menu): "))
+    clear()
+    if user_choose == "0":
+        clear()
+        return
     
-    try :
-        f = open('movements.json', 'r', encoding='utf-8')
-        movements = json.load(f)
-        f.close()
-    except:
-        print("Arquivo não existe, criando um novo...")
-        movements = []
+    while True:
+        description = input(">>> Descrição da movimentação:\n")
+        if len(description) < 10:
+            input("A movimentação deve ter pelo menos 10 caracteres. Pressione ENTER para tentar novamente.")
+            return
+        else:
+            break
+    
 
-    data = str(datetime.now())
-    descricao = input("Descrição da movimentação: ")
+    movement = {"date": data_str, "description": description}
+    movements.append(movement)
 
-    movimento = {"date": data, "description": descricao}
-
-    movements.append(movimento)
-
-    f = open('movements.json', 'w', encoding='utf-8')
-    json.dump(movements, f)
-    f.close()
-
-    print("Movimentação registrada com sucesso!")
+    save_data(FILENAME, movements)
+    print("\n\nMovimentação registrada com sucesso!\n\n")
+    return_to_menu()    
