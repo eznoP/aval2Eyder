@@ -1,4 +1,3 @@
-import json
 from files import load_data, save_data
 from utilitys import clear
 

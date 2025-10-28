@@ -4,9 +4,7 @@ from inputs import add_input, update_stock
 from movements import add_movement
 from reports import generate_report
 import os
-
-def clear():
-    os.system("cls")
+from utilitys import clear
 
 def menu():
     while True:
@@ -25,7 +23,6 @@ def menu():
 
         if user_choose == "1":
             clear()
-            
             add_animal()
 
         elif user_choose == "2":
@@ -43,7 +40,6 @@ def menu():
         
         elif user_choose == "5":
             clear()
-            
             add_input()
         
         elif user_choose == "6":
@@ -65,5 +61,6 @@ def menu():
             clear()
             print("❌ Opção inválida, tente novamente.")
             input()
-if __name__ == "__main__":
+
+if __name__ == "__main__":  
     menu()

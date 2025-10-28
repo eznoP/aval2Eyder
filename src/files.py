@@ -15,6 +15,7 @@ def load_data(filename):          # CARREGA OS DADOS DE UM ARQUIVO JSON
     
     except json.JSONDecodeError:           # TRATA O ERRO CASO O ARQUIVO ESTEJA VAZIO OU CORROMPIDO
         print(f"Aviso: {filename} estava vazio ou corrompido. Criando novo.")
+        return []
 
    
 def save_data(filename, data):                                      # SALVA OS DADOS EM UM ARQUIVO JSON
