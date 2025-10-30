@@ -55,6 +55,8 @@ def add_plant():
     plants.append(plant)
     save_data(FILENAME, plants)
     print("✅ Plantação cadastrada com sucesso!")
+    print()
+    return_to_menu()
 
 def list_plants():
     plants = load_data(FILENAME)
