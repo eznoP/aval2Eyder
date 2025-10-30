@@ -51,7 +51,7 @@ def add_input():                                           # ADICIONAR NOVO INSU
     }
     
     
-    data.append(insumo)
+    data.append(inputs)
     save_data(FILENAME, data)                                      # FUNÇÕES PARA SALVAR O NOVO INSUMO ADICIONADO
  
     clear()
@@ -68,7 +68,7 @@ def update_stock():                    # INVENTÁRIO DE INSUMOS QUE JÁ FORAM AD
 
     print("\n--- LISTA DE INSUMOS ---")
     
-    for insumo in data:
+    for inputs in data:
     
         print(f"ID: {inputs['id']}")
         print(f"Nome: {inputs['name']}")
