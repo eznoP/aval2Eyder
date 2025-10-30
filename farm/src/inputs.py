@@ -1,14 +1,14 @@
 import re   # EXPRESSÕES REGULARES PARA FAZER O FORMATO DE ID (A001)
-from files import load_data, save_data
-from utilitys import clear, return_to_menu
+from files import load_data, save_data #Funçoes para carregar e salvar dados 
+from utilitys import clear, return_to_menu #Funçao limpar tela e voltar pro menu
 
-FILENAME = "inputs.json"
+FILENAME = "inputs.json" #Onde os arquivos vao ficar armazenados            
 
 def add_input():                                           # ADICIONAR NOVO INSUMO
    
     data = load_data(FILENAME)                                    
     
-    user_choose = (input(">>> Deseja realmente adicionar um novo insumo? (Pressione Enter para continuar ou 0 para voltar ao menu): "))
+    user_choose = (input(">>> Deseja realmente adicionar um novo insumo? (Pressione Enter para continuar ou 0 para voltar ao menu): ")) #Confirmação de opção para o usuario 
     clear()
     if user_choose == "0":
         clear()
@@ -18,7 +18,7 @@ def add_input():                                           # ADICIONAR NOVO INSU
 
        
     ID = input("> Digite o ID do insumo (ex: A001): ")
-    if not re.fullmatch(r"[A-Za-z]\d{3}", ID):
+    if not re.fullmatch(r"[A-Za-z]\d{3}", ID): 
         print(f"ID ({ID}) inválido. Use apenas uma letra seguida de três números (ex: A001).")
         return_to_menu()
         return
