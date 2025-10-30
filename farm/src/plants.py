@@ -66,4 +66,5 @@ def list_plants():
         return
     for p in plants:
         print(f"{p['id']} - {p['crop_type']} - {p['area']} ha - colheita em {p['harvest_date']} - {p['status']}\n\n")
-        return_to_menu()
+    
+    return_to_menu()
