@@ -76,6 +76,6 @@ def update_stock():                    # INVENTÁRIO DE INSUMOS QUE JÁ FORAM AD
         print(f"Categoria: {inputs['category']}")
         print("-----------------------------\n\n")
       
-   return_to_menu()
+    return_to_menu()
 
 
