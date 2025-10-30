@@ -56,7 +56,7 @@ def add_input():                                           # ADICIONAR NOVO INSU
  
     clear()
     print("Insumo cadastrado com sucesso.\n")
-    input("Pressione Enter para voltar. ")
+    return_to_menu()
 
 def update_stock():                    # INVENTÁRIO DE INSUMOS QUE JÁ FORAM ADICIONADOS
     data = load_data(FILENAME)
