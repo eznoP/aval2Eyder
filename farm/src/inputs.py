@@ -42,7 +42,7 @@ def add_input():                                           # ADICIONAR NOVO INSU
         return
     
     
-    insumo = {
+    inputs = {
         "id": ID,
         "name": name,
         "quantity": quantity,
@@ -70,11 +70,12 @@ def update_stock():                    # INVENTÁRIO DE INSUMOS QUE JÁ FORAM AD
     
     for insumo in data:
     
-        print(f"ID: {insumo['id']}")
-        print(f"Nome: {insumo['name']}")
-        print(f"Quantidade: {insumo['quantity']} {insumo['unit']}")
-        print(f"Categoria: {insumo['category']}")
+        print(f"ID: {inputs['id']}")
+        print(f"Nome: {inputs['name']}")
+        print(f"Quantidade: {inputs['quantity']} {inputs['unit']}")
+        print(f"Categoria: {inputs['category']}")
         print("-----------------------------\n\n")
-        return_to_menu()
+      
+   return_to_menu()
 
 
