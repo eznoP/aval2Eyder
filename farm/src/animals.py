@@ -78,4 +78,5 @@ def list_animals():                 # FUNÇÃO QUE VERIFICA SE EXISTE ALGUM ANIM
     for a in animals:
         print(f"{a['id']} - {a['species']} - {a['age']} meses - {a['weight']} kg - {a['status']}")
         print()
-        return_to_menu()
+    
+    return_to_menu()
