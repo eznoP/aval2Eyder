@@ -1,3 +1,11 @@
+"""
+ENZO RIOS VERAS OST LOPES ; 2025027563
+
+ARTHUR LEAL TELES ; 2025049589
+
+ANTONIO LUCAS DE OLIVEIRA NETO ; 2025031806
+"""
+
 from animals import add_animal, list_animals
 from plants import add_plant, list_plants
 from inputs import add_input, update_stock
