@@ -28,7 +28,7 @@ def menu():
         elif user_choose == "2":
             clear()
             list_animals()
-            clear()
+
 
         elif user_choose == "3":
             clear()
@@ -37,7 +37,7 @@ def menu():
         elif user_choose == "4":
             clear()
             list_plants()
-            clear()
+
         
         elif user_choose == "5":
             clear()
@@ -46,7 +46,7 @@ def menu():
         elif user_choose == "6":
             clear()
             update_stock()
-            clear()
+
         
         elif user_choose == "7":
             clear()
